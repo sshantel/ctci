@@ -37,4 +37,4 @@ if __name__ == "__main__":
     import doctest
 
     if doctest.testmod().failed == 0:
-        print("\n*** ALL TEST PASSED. AWESOMESAUCE!\n")
+        print("\n*** ALL TESTS PASSED. AWESOMESAUCE!\n")
