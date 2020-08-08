@@ -5,7 +5,7 @@ and that you are given the "true" length of the string.
 (Note: if implementing in Java, please use a character array so that you can perform 
 this operation in place.)
 
->>> to_urlify('Mr John Smith    ', 13)
+>>> to_urlify('Mr John Smith    ')
 'Mr%20John%20Smith'
 
 >>> to_urlify('cracking the coding interview')
@@ -14,10 +14,11 @@ this operation in place.)
 
 
 def to_urlify(string):
-    urlify_string = ""
-    split_string = string.split()
+    return string.strip().replace(" ", "%20")
 
-    for char in split_string:
-        urlify_string = char + "%20"
 
-    return urlify_string
+if __name__ == "__main__":
+    import doctest
+
+    if doctest.testmod().failed == 0:
+        print("\n*** ALL TEST PASSED. AWESOMESAUCE!\n")
