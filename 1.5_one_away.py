@@ -15,22 +15,43 @@ False
 
 def one_away(string1, string2):
 
-    for char in string1:
-        count = 0
-        len_string_1 = len(string1)
-        len_string_2 = len(string2)
-        list_of_words = []
-        if abs(len_string_1 - len_string_2) == 1:
-            continue
-        for i in range(len_string_1):
-            if string1[i] != string2[i]:
-                count += 1
-            if count == 2:
-                break
-        if count == 1:
-            list_of_words.append(char)
-    return count == 1
+    if len(string1) == len(string2):
+        return one_edit_replace(string1, string2)
+    elif len(string1) + 1 == len(string2):
+        return one_edit_insert(string1, string2)
+    elif len(string1) - 1 == len(string2):
+        return one_edit_insert(string2, string1)
+    return False
 
 
-print(one_away("pale", "ale"))
+def one_edit_replace(string1, string2):
+    edited = False
+    for string1, string2 in zip(string1, string2):
+        print(zip(string1, string2))
+        if string1 != string2:
+            if edited:
+                return False
+            edited = True
+    return True
+
+
+def one_edit_insert(string1, string2):
+    edited = False
+    i = 0
+    j = 0
+
+    while i < len(string1) and j < len(string2):
+        if string1[i] != string2[j]:
+            if edited:
+                return False
+            edited = True
+            j += 1
+        else:
+            i += 1
+            j += 1
+
+    return True
+
+
+print(one_away("pale", "ple"))
 
