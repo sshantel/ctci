@@ -27,7 +27,6 @@ def one_away(string1, string2):
 def one_edit_replace(string1, string2):
     edited = False
     for string1, string2 in zip(string1, string2):
-        print(zip(string1, string2))
         if string1 != string2:
             if edited:
                 return False
